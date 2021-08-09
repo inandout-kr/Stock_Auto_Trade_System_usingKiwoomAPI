@@ -62,8 +62,7 @@ class Kiwoom(QAxWidget):
         self.tr_event_loop.exec_()
 
     def _comm_get_data(self, code, real_type, field_name, index, item_name):
-        ret = self.dynamicCall("CommGetData(QString, QString, QString, int, QString)", code,
-                               real_type, field_name, index, item_name)
+        ret = self.dynamicCall("CommGetData(QString, QString, QString, int, QString)", code, real_type, field_name, index, item_name)
         return ret.strip()
 
     def _get_repeat_cnt(self, trcode, rqname):
@@ -71,8 +70,7 @@ class Kiwoom(QAxWidget):
         return ret
 
     def send_order(self, rqname, screen_no, acc_no, order_type, code, quantity, price, hoga, order_no):
-        self.dynamicCall("SendOrder(QString, QString, QString, int, QString, int, int, QString, QString)",
-                         [rqname, screen_no, acc_no, order_type, code, quantity, price, hoga, order_no])
+        self.dynamicCall("SendOrder(QString, QString, QString, int, QString, int, int, QString, QString)", [rqname, screen_no, acc_no, order_type, code, quantity, price, hoga, order_no])
 
     def get_chejan_data(self, fid):
         ret = self.dynamicCall("GetChejanData(int)", fid)
@@ -200,8 +198,7 @@ class Kiwoom(QAxWidget):
             eval_profit_loss_price = Kiwoom.change_format(eval_profit_loss_price)
             earning_rate = Kiwoom.change_format2(earning_rate)
 
-            self.opw00018_output['multi'].append([name, quantity, purchase_price, current_price, eval_profit_loss_price,
-                                                  earning_rate])
+            self.opw00018_output['multi'].append([name, quantity, purchase_price, current_price, eval_profit_loss_price, earning_rate])
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
